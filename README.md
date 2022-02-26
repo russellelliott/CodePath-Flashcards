@@ -1,1 +1,20 @@
-# CodePath-Flashcards
+# CodePath Flashcards
+
+## Lab 1
+
+### App Description
+This app is a flashcard app. Initally, the user sees a question in a blue box that they must answer. Form there, the user can tap the question to see the answer. They can tap it again to hide the answer and see the question again.
+
+### App Walk-though
+<img src="Demo.gif" width=200><br>
+
+## Required
+- [x] Create New Project in Xcode
+- [x] Add a view for the front side of the flashcard to display the question
+- [x] Add a view for the back side of the flashcard to display the answer
+- [x] Build in logic to show the answer side when the card is tapped
+- [x] Push code to GitHub
+## Optional
+- [x] Toggle the flashcard between the question side and the answer side
+- [ ] Style the question and answer side of the card to better distinguish between the two sides
+- [ ] Add selectable multiple choice answers beneath the card
