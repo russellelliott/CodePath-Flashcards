@@ -23,7 +23,8 @@ class ViewController: UIViewController {
     //Function that shows the answer when the user taps on the flashcard
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         //set the question label to be hidden so the answer is visible
-        frontLabel.isHidden = true;
+        //if the user taps again, the question becomes visible again.
+        frontLabel.isHidden = !frontLabel.isHidden;
     }
     
 }
