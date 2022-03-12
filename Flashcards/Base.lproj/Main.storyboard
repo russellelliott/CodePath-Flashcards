@@ -120,6 +120,11 @@
                                 <action selector="cancel:" destination="UkE-0w-ACg" id="YRt-na-Uy5"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="zaw-7g-lOR">
+                            <connections>
+                                <action selector="done:" destination="UkE-0w-ACg" id="oag-LH-POl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTh-Ff-ozw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

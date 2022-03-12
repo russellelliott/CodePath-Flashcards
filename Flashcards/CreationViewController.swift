@@ -8,7 +8,9 @@
 import UIKit
 
 class CreationViewController: UIViewController {
-
+    
+    var flashcardsController: ViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,12 @@ class CreationViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true)
     }
+    
+    @IBAction func done(_ sender: Any) {
+        flashcardsController.updateFlashcard(question: "question", answer: "answer")
+        dismiss(animated: true)
+    }
+    
     
     /*
     // MARK: - Navigation
