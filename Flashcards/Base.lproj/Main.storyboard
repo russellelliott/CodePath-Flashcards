@@ -43,12 +43,12 @@
                                     <outletCollection property="gestureRecognizers" destination="98H-be-v1K" appends="YES" id="vFe-iB-hOy"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6l-kg-6xz">
-                                <rect key="frame" x="158" y="708" width="99" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1r8-9d-wc8">
+                                <rect key="frame" x="158" y="716" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add New Card"/>
                                 <connections>
-                                    <segue destination="UkE-0w-ACg" kind="presentation" id="Dfw-ny-ra8"/>
+                                    <segue destination="rCV-aH-s8F" kind="presentation" id="qSG-sd-K2O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="88.392857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Creation View Controller-->
         <scene sceneID="FFd-uL-QVz">
             <objects>
-                <viewController id="UkE-0w-ACg" sceneMemberID="viewController">
+                <viewController id="UkE-0w-ACg" customClass="CreationViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PpE-9m-0Ys">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,10 +114,35 @@
                         <viewLayoutGuide key="safeArea" id="cRN-42-2fJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7Qi-rf-hI9">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gVA-s6-MMY">
+                            <connections>
+                                <action selector="cancel:" destination="UkE-0w-ACg" id="YRt-na-Uy5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTh-Ff-ozw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772.46376811594212" y="108.48214285714285"/>
+            <point key="canvasLocation" x="2166.666666666667" y="87.723214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CZe-uD-BEy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rCV-aH-s8F" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CYD-HF-oJN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UkE-0w-ACg" kind="relationship" relationship="rootViewController" id="9CD-Cz-31y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clx-Iz-WVO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256.521739130435" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>

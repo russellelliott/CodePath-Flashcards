@@ -15,6 +15,9 @@
 		3C01DB5D27CAB11600A98876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C01DB5B27CAB11600A98876 /* LaunchScreen.storyboard */; };
 		3C01DB6827CAB11700A98876 /* FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01DB6727CAB11700A98876 /* FlashcardsTests.swift */; };
 		3C01DB7327CAB11700A98876 /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01DB7227CAB11700A98876 /* FlashcardsUITests.swift */; };
+		3C16FF5A27DD2B850019939D /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16FF5927DD2B850019939D /* CreationViewController.swift */; };
+		3C16FF5B27DD2B850019939D /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16FF5927DD2B850019939D /* CreationViewController.swift */; };
+		3C16FF5C27DD2B850019939D /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16FF5927DD2B850019939D /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 		3C01DB6E27CAB11700A98876 /* FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C01DB7227CAB11700A98876 /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
 		3C01DB7427CAB11700A98876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C16FF5927DD2B850019939D /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				3C01DB5227CAB11100A98876 /* SceneDelegate.swift */,
 				3C01DB5427CAB11100A98876 /* ViewController.swift */,
 				3C01DB5627CAB11100A98876 /* Main.storyboard */,
+				3C16FF5927DD2B850019939D /* CreationViewController.swift */,
 				3C01DB5927CAB11600A98876 /* Assets.xcassets */,
 				3C01DB5B27CAB11600A98876 /* LaunchScreen.storyboard */,
 				3C01DB5E27CAB11600A98876 /* Info.plist */,
@@ -261,6 +266,7 @@
 				3C01DB5527CAB11100A98876 /* ViewController.swift in Sources */,
 				3C01DB5127CAB11100A98876 /* AppDelegate.swift in Sources */,
 				3C01DB5327CAB11100A98876 /* SceneDelegate.swift in Sources */,
+				3C16FF5A27DD2B850019939D /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C01DB6827CAB11700A98876 /* FlashcardsTests.swift in Sources */,
+				3C16FF5B27DD2B850019939D /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C01DB7327CAB11700A98876 /* FlashcardsUITests.swift in Sources */,
+				3C16FF5C27DD2B850019939D /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
