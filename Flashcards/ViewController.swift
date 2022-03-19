@@ -63,6 +63,17 @@ class ViewController: UIViewController {
         //Debug statements to ensure the code is working
         print("Added new flashcard")
         print("There are now \(flashcards.count) flashcards")
+        //Update current index
+        //the current index is the number of flash cards minus one
+        //for instance, the 3rd card is index 2
+        currentIndex = flashcards.count-1
+        print("Current index is \(currentIndex)")
+        
+        //Update buttons
+        updateButtons()
+        
+        //Update labels
+        updateLabels()
     }
     
     //Buttons for the previous and next flashcards
@@ -88,13 +99,40 @@ class ViewController: UIViewController {
         
     }
     
+    func updateLabels(){
+        //Get the current flashcard
+        let currentFlashcard = flashcards[currentIndex]
+        
+        //Update labels
+        frontLabel.text = currentFlashcard.question
+        backLabel.text = currentFlashcard.answer
+    }
+    
     //User tapped the "prev" button to go back to the previous card
     @IBAction func prev(_ sender: Any) {
+        //Decrease current index
+        //The index cannot be below 0. To prevent this, use the max() function to get the maximum of the decremented index and 0. This prevents it from being negative
+        currentIndex = max(currentIndex-1, 0)
+        
+        //Update labels
+        updateLabels()
+        
+        //Update buttons
+        updateButtons()
+        
     }
     
     
     //User tapped the "next" button to go to the next card
     @IBAction func next(_ sender: Any) {
+        //Increase current index
+        currentIndex = currentIndex+1
+        
+        //Update labels
+        updateLabels()
+        
+        //Update buttons
+        updateButtons()
     }
     
 }
