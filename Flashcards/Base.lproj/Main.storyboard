@@ -74,6 +74,8 @@
                     <connections>
                         <outlet property="backLabel" destination="XGe-WC-cGY" id="hwq-ub-QE4"/>
                         <outlet property="frontLabel" destination="HOH-ly-8iu" id="DtH-zN-aa9"/>
+                        <outlet property="nextButton" destination="Noz-de-bmb" id="sXn-iQ-XOU"/>
+                        <outlet property="prevButton" destination="97O-X0-SIq" id="JBV-BQ-1AR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

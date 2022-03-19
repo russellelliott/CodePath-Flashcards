@@ -58,9 +58,34 @@ class ViewController: UIViewController {
         backLabel.text = flashcard.answer;
         //Append flashcard to the list of flashcards
         flashcards.append(flashcard)
+        //Update the buttons
+        updateButtons()
         //Debug statements to ensure the code is working
         print("Added new flashcard")
         print("There are now \(flashcards.count) flashcards")
+    }
+    
+    //Buttons for the previous and next flashcards
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    //Function that shows the "prev" and "next" buttons depending on how many cards are there and where in the deck we are.
+    func updateButtons(){
+        //Logic for updating the "prev" button
+        //If we are at the beginning of the card deck, disable the "prev" button
+        if(currentIndex == 0){
+            prevButton.isEnabled = false
+        }else{
+            prevButton.isEnabled = true
+        }
+        //Logic for updating the "next" button
+        //If we are at the end of the card deck, disable the "next" button
+        if(currentIndex == flashcards.count-1){
+            nextButton.isEnabled = false
+        }else{
+            nextButton.isEnabled = true
+        }
+        
     }
     
     //User tapped the "prev" button to go back to the previous card
