@@ -7,6 +7,12 @@
 
 import UIKit
 
+//Struct to store parameters of the flashcard
+struct Flashcard{
+    var question: String
+    var answer: String
+}
+
 class ViewController: UIViewController {
 
     //Label for the answer
@@ -38,8 +44,9 @@ class ViewController: UIViewController {
     }
     
     func updateFlashcard(question: String, answer: String){
-        frontLabel.text = question;
-        backLabel.text = answer;
+        let flashcard = Flashcard(question: question, answer: answer)
+        frontLabel.text = flashcard.question;
+        backLabel.text = flashcard.answer;
     }
     
 }
