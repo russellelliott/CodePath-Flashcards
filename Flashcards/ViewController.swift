@@ -74,6 +74,9 @@ class ViewController: UIViewController {
         
         //Update labels
         updateLabels()
+        
+        //Save cards to disk
+        saveToDisk()
     }
     
     //Buttons for the previous and next flashcards
@@ -133,6 +136,20 @@ class ViewController: UIViewController {
         
         //Update buttons
         updateButtons()
+    }
+    
+    //Function that saves the user flashcards to the disk. Called every time the card deck is updated.
+    func saveToDisk(){
+        //From flashcard array to dictionary array
+        let dictionaryArray = flashcards.map{ (card) -> [String:String] in
+            return ["question":card.question, "answer": card.answer]
+        }
+        
+        //Save array on disk using UserDefaults
+        UserDefaults.standard.set(dictionaryArray, forKey:"flashcards")
+        
+        //Debug print statement
+        print("Flashcards saved to UserDefaults")
     }
     
 }
