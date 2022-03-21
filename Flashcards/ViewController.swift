@@ -31,8 +31,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //Add the first flashcard
-        updateFlashcard(question: "Sample Question", answer: "Sample Answer")
+        //Read saved flashcards from the disk
+        readFromDisk()
+        
+        //Add the first flashcard if needed
+        if(flashcards.count==0){
+            updateFlashcard(question: "Sample Question", answer: "Sample Answer")
+        }else{
+            //If there are already cards saved on the disk, make sure to update the labels and buttons
+            updateLabels()
+            updateButtons()
+        }
     }
 
     //Function that shows the answer when the user taps on the flashcard
@@ -150,6 +159,19 @@ class ViewController: UIViewController {
         
         //Debug print statement
         print("Flashcards saved to UserDefaults")
+    }
+    
+    //Function that reads cards from disk (if any)
+    func readFromDisk(){
+        //Read dictionary array from disk (if any)
+        //If statement checks if such an array exists
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String:String]] {
+            //We know the user has data that has been previously saved to the disk
+            let savedCards = dictionaryArray.map{ dictionary->Flashcard in
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!)}
+            //Put all the cards in the flashcard array
+            flashcards.append(contentsOf: savedCards)
+        }
     }
     
 }
