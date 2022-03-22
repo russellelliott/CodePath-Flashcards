@@ -59,6 +59,13 @@ class ViewController: UIViewController {
         let creationController = navigationController.topViewController as! CreationViewController
         
         creationController.flashcardsController = self
+        
+        //Edit flashcard: display the current card's text
+        if segue.identifier == "EditSegue" {
+            creationController.initialQuestion = frontLabel.text
+            creationController.initialAnswer = backLabel.text
+        }
+        
     }
     
     func updateFlashcard(question: String, answer: String){
