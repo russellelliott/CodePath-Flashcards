@@ -88,6 +88,46 @@ class ViewController: UIViewController {
         saveToDisk()
     }
     
+    //User tapped on the "delete" button
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        
+        print("Tapped on delete")
+        //Show confirmation
+        let alert = UIAlertController(title: "Delete flashcard", message: "Are you sure you want to delete it?", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+                    //Cancel Action
+                }))
+                alert.addAction(UIAlertAction(title: "Delete",
+                                              style: UIAlertAction.Style.destructive,
+                                              handler: {(_: UIAlertAction!) in
+                                                //Delete action
+                                                self.deleteCurrentFlashcard()
+                                                print("Delete")
+                }))
+                self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    //Delete the current flashcard
+    func deleteCurrentFlashcard(){
+        //Delete the current flashcard
+        flashcards.remove(at: currentIndex)
+        
+        //Special case: Check if last card was deleted
+        if currentIndex > flashcards.count-1 {
+            currentIndex = flashcards.count-1
+        }
+        
+        //Update buttons
+        updateButtons()
+        //Update Labels
+        updateLabels()
+        //Save to disk
+        saveToDisk()
+    }
+    
     //Buttons for the previous and next flashcards
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
