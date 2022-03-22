@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         
         //Add the first flashcard if needed
         if(flashcards.count==0){
-            updateFlashcard(question: "Sample Question", answer: "Sample Answer")
+            updateFlashcard(question: "Sample Question", answer: "Sample Answer", isExisting: false)
         }else{
             //If there are already cards saved on the disk, make sure to update the labels and buttons
             updateLabels()
@@ -68,22 +68,26 @@ class ViewController: UIViewController {
         
     }
     
-    func updateFlashcard(question: String, answer: String){
+    func updateFlashcard(question: String, answer: String, isExisting: Bool){
         let flashcard = Flashcard(question: question, answer: answer)
         frontLabel.text = flashcard.question;
         backLabel.text = flashcard.answer;
-        //Append flashcard to the list of flashcards
-        flashcards.append(flashcard)
-        //Update the buttons
-        updateButtons()
-        //Debug statements to ensure the code is working
-        print("Added new flashcard")
-        print("There are now \(flashcards.count) flashcards")
-        //Update current index
-        //the current index is the number of flash cards minus one
-        //for instance, the 3rd card is index 2
-        currentIndex = flashcards.count-1
-        print("Current index is \(currentIndex)")
+        
+        if isExisting{
+            //Replace existing flashcard
+            flashcards[currentIndex] = flashcard
+        }else{
+            //Append flashcard to the list of flashcards
+            flashcards.append(flashcard)
+            //Debug statements to ensure the code is working
+            print("Added new flashcard")
+            print("There are now \(flashcards.count) flashcards")
+            //Update current index
+            //the current index is the number of flash cards minus one
+            //for instance, the 3rd card is index 2
+            currentIndex = flashcards.count-1
+            print("Current index is \(currentIndex)")
+        }
         
         //Update buttons
         updateButtons()
