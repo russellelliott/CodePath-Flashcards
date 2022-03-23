@@ -130,6 +130,13 @@ class ViewController: UIViewController {
         if currentIndex > flashcards.count-1 {
             currentIndex = flashcards.count-1
         }
+        //Special case 2: There is one flashcard left and the user deletes it
+        //At this point, there are 0 flashcards.
+        //If no preventive measures are made, the index will become -1. This is an invalid index, and will cause the app to crash.
+        //To solve this issue, if there are 0 cards, the current index will be set to 0.
+        if(flashcards.count==0){
+            currentIndex = 0
+        }
         
         //Update buttons
         updateButtons()
