@@ -21,6 +21,37 @@ class ViewController: UIViewController {
     //Label for the question
     @IBOutlet weak var frontLabel: UILabel!
     
+    //Label for option 1
+    @IBOutlet weak var btnOptionOne: UIButton!
+    
+    //Function for when user taps on option 1
+    @IBAction func didTapOptionOne(_ sender: Any) {
+        btnOptionOne.isHidden = true;
+    }
+    
+    //Label for option 2 (the correct answer)
+    @IBOutlet weak var btnOptionTwo: UIButton!
+    
+    //Function for when user taps on option 2
+    @IBAction func didTapOptionTwo(_ sender: Any) {
+        //Show the back label
+        frontLabel.isHidden = true;
+        //Hide all the buttons
+        btnOptionOne.isHidden = true;
+        btnOptionTwo.isHidden = true;
+        btnOptionThree.isHidden = true;
+    }
+    
+    //Label for option 3
+    @IBOutlet weak var btnOptionThree: UIButton!
+    
+    //Function for when user taps option 3
+    @IBAction func didTapOptionThree(_ sender: Any) {
+        btnOptionThree.isHidden = true;
+        
+    }
+    
+    
     //Array to store the flashcards
     var flashcards = [Flashcard]()
     
