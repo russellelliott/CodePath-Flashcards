@@ -217,10 +217,18 @@ class ViewController: UIViewController {
         frontLabel.text = currentFlashcard.question
         backLabel.text = currentFlashcard.answer
         
-        //Answer lables
+        //Answer labelss
         btnOptionOne.setTitle(currentFlashcard.extraAnswerOne, for: .normal)
         btnOptionTwo.setTitle(currentFlashcard.answer, for: .normal)
         btnOptionThree.setTitle(currentFlashcard.extraAnswerTwo, for: .normal)
+        
+        frontLabel.isHidden = false
+        
+        //make all the answer buttons visible again
+        btnOptionOne.isHidden = false
+        btnOptionTwo.isHidden = false
+        btnOptionThree.isHidden = false
+        
     }
     
     //User tapped the "prev" button to go back to the previous card
