@@ -97,8 +97,13 @@ class ViewController: UIViewController {
         
         //Edit flashcard: display the current card's text
         if segue.identifier == "EditSegue" {
+            //display question and answer on card
             creationController.initialQuestion = frontLabel.text
             creationController.initialAnswer = backLabel.text
+            
+            //display answer options
+            creationController.initialExtraAnswerOne = btnOptionOne.title(for: .normal)
+            creationController.initialExtraAnswerTwo = btnOptionThree.title(for: .normal)
         }
         
     }
