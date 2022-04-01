@@ -10,7 +10,11 @@ import UIKit
 //Struct to store parameters of the flashcard
 struct Flashcard{
     var question: String
+    
+    //Store the three answer options
     var answer: String
+    var extraAnswerOne: String
+    var extraAnswerTwo: String
 }
 
 class ViewController: UIViewController {
@@ -67,7 +71,7 @@ class ViewController: UIViewController {
         
         //Add the first flashcard if needed
         if(flashcards.count==0){
-            updateFlashcard(question: "Sample Question", answer: "Sample Answer", isExisting: false)
+            updateFlashcard(question: "Sample Question", answer: "Sample Answer", extraAnswerOne: "Extra Answer One", extraAnswerTwo: "Extra Answer Two", isExisting: false)
         }else{
             //If there are already cards saved on the disk, make sure to update the labels and buttons
             updateLabels()
@@ -99,10 +103,15 @@ class ViewController: UIViewController {
         
     }
     
-    func updateFlashcard(question: String, answer: String, isExisting: Bool){
-        let flashcard = Flashcard(question: question, answer: answer)
+    func updateFlashcard(question: String, answer: String, extraAnswerOne: String?, extraAnswerTwo: String?, isExisting: Bool){
+        let flashcard = Flashcard(question: question, answer: answer, extraAnswerOne: extraAnswerOne!, extraAnswerTwo: extraAnswerTwo!)
         frontLabel.text = flashcard.question;
         backLabel.text = flashcard.answer;
+        
+        //Answer options
+        btnOptionOne.setTitle(extraAnswerOne, for: .normal)
+        btnOptionTwo.setTitle(answer, for: .normal)
+        btnOptionThree.setTitle(extraAnswerTwo, for: .normal)
         
         if isExisting{
             //Replace existing flashcard
@@ -207,6 +216,11 @@ class ViewController: UIViewController {
         //Update labels
         frontLabel.text = currentFlashcard.question
         backLabel.text = currentFlashcard.answer
+        
+        //Answer lables
+        btnOptionOne.setTitle(currentFlashcard.extraAnswerOne, for: .normal)
+        btnOptionTwo.setTitle(currentFlashcard.answer, for: .normal)
+        btnOptionThree.setTitle(currentFlashcard.extraAnswerTwo, for: .normal)
     }
     
     //User tapped the "prev" button to go back to the previous card
@@ -240,7 +254,7 @@ class ViewController: UIViewController {
     func saveToDisk(){
         //From flashcard array to dictionary array
         let dictionaryArray = flashcards.map{ (card) -> [String:String] in
-            return ["question":card.question, "answer": card.answer]
+            return ["question":card.question, "answer": card.answer, "extraAnswerOne": card.extraAnswerOne, "extraAnswerTwo": card.extraAnswerTwo]
         }
         
         //Save array on disk using UserDefaults
@@ -257,7 +271,7 @@ class ViewController: UIViewController {
         if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String:String]] {
             //We know the user has data that has been previously saved to the disk
             let savedCards = dictionaryArray.map{ dictionary->Flashcard in
-                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!)}
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, extraAnswerOne: "extra answer one", extraAnswerTwo: "extra answer two")}
             //Put all the cards in the flashcard array
             flashcards.append(contentsOf: savedCards)
         }
