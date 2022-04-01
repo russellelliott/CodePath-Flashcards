@@ -284,7 +284,7 @@ class ViewController: UIViewController {
         if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String:String]] {
             //We know the user has data that has been previously saved to the disk
             let savedCards = dictionaryArray.map{ dictionary->Flashcard in
-                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, extraAnswerOne: "extra answer one", extraAnswerTwo: "extra answer two")}
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, extraAnswerOne: dictionary["extraAnswerOne"]!, extraAnswerTwo: dictionary["extraAnswerTwo"]!)}
             //Put all the cards in the flashcard array
             flashcards.append(contentsOf: savedCards)
         }
