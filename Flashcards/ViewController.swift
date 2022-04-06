@@ -69,6 +69,14 @@ class ViewController: UIViewController {
         //Read saved flashcards from the disk
         readFromDisk()
         
+        //Apply style to the flashcards
+        
+        //Rounded corners
+        card.layer.cornerRadius = 20.0
+        
+        //Make the card clip to bounds so the corners are rounded
+        card.clipsToBounds = true
+        
         //Add the first flashcard if needed
         if(flashcards.count==0){
             updateFlashcard(question: "Sample Question", answer: "Sample Answer", extraAnswerOne: "Extra Answer One", extraAnswerTwo: "Extra Answer Two", isExisting: false)

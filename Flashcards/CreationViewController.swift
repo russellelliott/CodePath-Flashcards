@@ -32,7 +32,6 @@ class CreationViewController: UIViewController {
     //Answer fields
     
     //Extra Answer 1
-
     var initialExtraAnswerOne: String?
     
     //Correct Answer
