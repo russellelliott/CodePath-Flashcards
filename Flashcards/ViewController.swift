@@ -97,6 +97,27 @@ class ViewController: UIViewController {
         //frontLabel.isHidden = !frontLabel.isHidden;
     }
     
+    func animateCardOut(){
+        UIView.animate(withDuration: 0.3, animations: {self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)}, completion: {finished in
+            
+            //Update lavels
+            self.updateLabels();
+            
+            //Run another animation
+            self.animateCardIn();
+        })
+    }
+    
+    func animateCardIn(){
+        //Start on the right saide (don't animate this)
+        card.transform = CGAffineTransform.identity.translatedBy(x:300.0, y:0.0)
+        
+        //Animate card going back to its original position
+        UIView.animate(withDuration: 0.3){
+            self.card.transform = CGAffineTransform.identity
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
@@ -272,6 +293,9 @@ class ViewController: UIViewController {
         
         //Update buttons
         updateButtons()
+        
+        //Flashcard animation
+        animateCardOut()
     }
     
     //Function that saves the user flashcards to the disk. Called every time the card deck is updated.
