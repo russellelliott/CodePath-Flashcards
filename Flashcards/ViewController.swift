@@ -81,9 +81,20 @@ class ViewController: UIViewController {
 
     //Function that shows the answer when the user taps on the flashcard
     @IBAction func didTapOnFlashcard(_ sender: Any) {
+        flipFlashcard();
+    }
+    
+    
+    @IBOutlet weak var card: UIView!
+    
+    
+    func flipFlashcard(){
+        //animation for flipping the card
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {self.frontLabel.isHidden = !self.frontLabel.isHidden})
+        
         //set the question label to be hidden so the answer is visible
         //if the user taps again, the question becomes visible again.
-        frontLabel.isHidden = !frontLabel.isHidden;
+        //frontLabel.isHidden = !frontLabel.isHidden;
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

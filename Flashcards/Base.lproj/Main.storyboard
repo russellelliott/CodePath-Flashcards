@@ -118,6 +118,7 @@
                         <outlet property="btnOptionOne" destination="npm-V8-QkP" id="zex-cD-YHd"/>
                         <outlet property="btnOptionThree" destination="zi3-Ia-101" id="RsT-uN-wrZ"/>
                         <outlet property="btnOptionTwo" destination="jA3-7q-gjV" id="dcB-7J-yRH"/>
+                        <outlet property="card" destination="n9D-y6-Mms" id="Aj1-i5-50X"/>
                         <outlet property="frontLabel" destination="HOH-ly-8iu" id="DtH-zN-aa9"/>
                         <outlet property="nextButton" destination="Noz-de-bmb" id="sXn-iQ-XOU"/>
                         <outlet property="prevButton" destination="97O-X0-SIq" id="JBV-BQ-1AR"/>
