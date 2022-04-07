@@ -74,6 +74,10 @@ class ViewController: UIViewController {
         //Rounded corners
         card.layer.cornerRadius = 20.0
         
+        //Add shadow
+        card.layer.shadowRadius = 15.0
+        card.layer.shadowOpacity = 0.2
+        
         //Make the card clip to bounds so the corners are rounded
         card.clipsToBounds = true
         
