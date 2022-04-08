@@ -90,6 +90,22 @@ class ViewController: UIViewController {
             updateButtons()
         }
     }
+    
+    //More card animations
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //First start with the flashcard insible and slightly smaller in size
+        card.alpha = 0.0
+        //Scale initally set at 0.75
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        //Animation
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations:{
+            self.card.alpha = 1.0
+            self.card.transform = CGAffineTransform.identity
+        })
+    }
 
     //Function that shows the answer when the user taps on the flashcard
     @IBAction func didTapOnFlashcard(_ sender: Any) {
