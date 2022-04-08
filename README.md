@@ -1,4 +1,33 @@
-# CodePath Flashcards
+## Lab 4
+
+### App Description
+This lab deals with styling and animation within the app. There's an animation when the user goes to the next or prevevious flashcard. There is also an animation when the card and multiple choice options appear upon opening the app. There is also a splashscreen and logo for the app. In addtion, multiple size screen support has been implemented for all of the screens in the app, in that the items, buttons, and logos on the app scale dynamically to the size of the user's device.
+
+Besides the animations, multiple choice options have been added to the flashcard. Like the flashcard, these are also animated. The multiple choice answers are randomized, and can be modified in the card creation/modification screen.
+
+### App Walk-though
+Here is a walkthrough of the app on three devices; the iPhone 8 Plus, the iPhone 11, and the iPad Pro.
+
+### iPhone 8 Plus
+<img src="/Demos/Lab4/iPhone8.gif" width=200><br>
+
+### iPhone 11
+<img src="/Demos/Lab4/iPhone11.gif" width=200><br>
+
+### iPad Pro 12.9 Inch
+<img src="/Demos/Lab4/iPadPro.gif" width=200><br>
+
+## Required
+- [x] User should see the app icon 
+- [x] User should see a splash screen
+- [x] User should see an flip animation when revealing the answer
+- [x] User should see a slide animation when going to the next flashcard
+- [x] User should see a slide animation when going to the previous flashcard
+- [x] Push code to GitHub
+## Optional
+- [x] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
+- [x] User should see all views properly layout when using the app on a phone of different sizes
+- [x] Correct answer in multiple choice should be random
 
 ## Lab 3
 
@@ -14,8 +43,8 @@ Building off the last lab, the user can tap the "Add New Card" button to add a n
 - [x] Push code to GitHub
 ## Optional
 - [x] User can delete a flashcard
-- [x] User can edit existing flashcard
-- [ ] User can store multiple choice questions
+- [x] User can edit existing flashcard (Implemented March 22, 2022)
+- [x] User can store multiple choice questions (Implemented April 1, 2022)
 
 ## Lab 2
 
@@ -35,8 +64,8 @@ Note: The data of the old card is overwritten in the process of "creating" a new
 - [x] Push code to GitHub
 ## Optional
 - [x] User gets an error if they try to create a new flashcard with no question or answer
-- [ ] User can edit existing flashcard
-- [ ] User can add multiple choice answers in the creation screen
+- [x] User can edit existing flashcard (Implemented March 22, 2022)
+- [x] User can add multiple choice answers in the creation screen (Implemented April 1, 2022)
 
 ## Lab 1
 
@@ -54,5 +83,5 @@ This app is a flashcard app. Initally, the user sees a question in a blue box th
 - [x] Push code to GitHub
 ## Optional
 - [x] Toggle the flashcard between the question side and the answer side
-- [ ] Style the question and answer side of the card to better distinguish between the two sides
-- [ ] Add selectable multiple choice answers beneath the card
+- [x] Style the question and answer side of the card to better distinguish between the two sides (Implemented April 6, 2022)
+- [x] Add selectable multiple choice answers beneath the card (Implemented April 1, 2022)
