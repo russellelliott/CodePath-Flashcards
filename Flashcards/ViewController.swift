@@ -25,12 +25,34 @@ class ViewController: UIViewController {
     //Label for the question
     @IBOutlet weak var frontLabel: UILabel!
     
+    func disableAllButtons(){
+        btnOptionOne.isEnabled = false
+        btnOptionTwo.isEnabled = false
+        btnOptionThree.isEnabled = false
+    }
+    
+    func enableAllButtons(){
+        btnOptionOne.isEnabled = true
+        btnOptionTwo.isEnabled = true
+        btnOptionThree.isEnabled = true
+    }
+    
     //Label for option 1
     @IBOutlet weak var btnOptionOne: UIButton!
     
     //Function for when user taps on option 1
     @IBAction func didTapOptionOne(_ sender: Any) {
-        btnOptionOne.isHidden = true;
+        //btnOptionOne.isHidden = true;
+        //If correct answer flip flashcard, else disable button and show front label
+        if btnOptionOne == correctAnswerButton{
+            //Disable the other buttons
+            disableAllButtons()
+            //Flip the flashcard to reveal the answer
+            flipFlashcard()
+        }else{
+            frontLabel.isHidden = false
+            btnOptionOne.isEnabled = false
+        }
     }
     
     //Label for option 2 (the correct answer)
@@ -39,11 +61,21 @@ class ViewController: UIViewController {
     //Function for when user taps on option 2
     @IBAction func didTapOptionTwo(_ sender: Any) {
         //Show the back label
-        frontLabel.isHidden = true;
+        //frontLabel.isHidden = true;
         //Hide all the buttons
-        btnOptionOne.isHidden = true;
-        btnOptionTwo.isHidden = true;
-        btnOptionThree.isHidden = true;
+        //btnOptionOne.isHidden = true;
+        //btnOptionTwo.isHidden = true;
+        //btnOptionThree.isHidden = true;
+        //If correct answer flip flashcard, else disable button and show front label
+        if btnOptionTwo == correctAnswerButton{
+            //Disable the other buttons
+            disableAllButtons()
+            //Flip the flashcard to reveal the answer
+            flipFlashcard()
+        }else{
+            frontLabel.isHidden = false
+            btnOptionTwo.isEnabled = false
+        }
     }
     
     //Label for option 3
@@ -51,7 +83,17 @@ class ViewController: UIViewController {
     
     //Function for when user taps option 3
     @IBAction func didTapOptionThree(_ sender: Any) {
-        btnOptionThree.isHidden = true;
+        //btnOptionThree.isHidden = true;
+        //If correct answer flip flashcard, else disable button and show front label
+        if btnOptionThree == correctAnswerButton{
+            //Disable the other buttons
+            disableAllButtons()
+            //Flip the flashcard to reveal the answer
+            flipFlashcard()
+        }else{
+            frontLabel.isHidden = false
+            btnOptionThree.isEnabled = false
+        }
         
     }
     
@@ -90,10 +132,6 @@ class ViewController: UIViewController {
             updateButtons()
         }
     }
-    
-    //View for the options
-    
-    @IBOutlet weak var options: UIView!
     
     //More card animations
     override func viewWillAppear(_ animated: Bool) {
@@ -314,6 +352,9 @@ class ViewController: UIViewController {
         
     }
     
+    //Button to remember what the correct answer is
+    var correctAnswerButton: UIButton!
+    
     func updateLabels(){
         //Get the current flashcard
         let currentFlashcard = flashcards[currentIndex]
@@ -322,18 +363,26 @@ class ViewController: UIViewController {
         frontLabel.text = currentFlashcard.question
         backLabel.text = currentFlashcard.answer
         
-        //Answer labelss
-        btnOptionOne.setTitle(currentFlashcard.extraAnswerOne, for: .normal)
-        btnOptionTwo.setTitle(currentFlashcard.answer, for: .normal)
-        btnOptionThree.setTitle(currentFlashcard.extraAnswerTwo, for: .normal)
-        
+        //Make sure answer is hidden
         frontLabel.isHidden = false
         
-        //make all the answer buttons visible again
-        btnOptionOne.isHidden = false
-        btnOptionTwo.isHidden = false
-        btnOptionThree.isHidden = false
+        //Show all the buttons
+        enableAllButtons()
         
+        //Update buttons
+        let buttons = [btnOptionOne, btnOptionTwo, btnOptionThree].shuffled()
+        let answers = [currentFlashcard.answer, currentFlashcard.extraAnswerOne, currentFlashcard.extraAnswerTwo].shuffled()
+        
+        //Iterate over both arrays at the same time
+        for(button, answer) in zip(buttons, answers){
+            //Set the tile of this random button with a random answer
+            button?.setTitle(answer, for: .normal)
+            
+            //If this is the correct answer, save the button
+            if answer == currentFlashcard.answer{
+                correctAnswerButton = button
+            }
+        }
     }
     
     //User tapped the "prev" button to go back to the previous card
