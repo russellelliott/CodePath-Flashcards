@@ -289,6 +289,14 @@ class ViewController: UIViewController {
         //Show confirmation
         let alert = UIAlertController(title: "Delete flashcard", message: "Are you sure you want to delete it?", preferredStyle: .actionSheet)
         
+        //The following code provides location information for the alert. This remedies an issue of the UIAlertController crashing on an iPad.
+        //Source code: https://code-examples.net/en/q/1ac9e2a
+        if let popoverController = alert.popoverPresentationController {
+                popoverController.sourceView = self.view
+                popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                popoverController.permittedArrowDirections = []
+            }
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
                     //Cancel Action
                 }))
