@@ -357,6 +357,9 @@ class ViewController: UIViewController {
     
     func updateLabels(){
         //Get the current flashcard
+        if(currentIndex<0 || currentIndex<0){ //if index is less than 0, app crashes. This avoids this condition
+            currentIndex = 0
+        }
         let currentFlashcard = flashcards[currentIndex]
         
         //Update labels
